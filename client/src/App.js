@@ -5,9 +5,7 @@ import Search from "./pages/Search";
 import NotFound from "./pages/notFound";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import Jumbotron from './components/Jumbotron';
-import SearchBar from './components/SearchBar';
-import SearchButton from './components/SearchButton';
+
 
 // import logo from './logo.svg';
 import './App.css';
@@ -18,14 +16,12 @@ function App() {
     <Router>
       <div>
         <NavBar />
-        <Jumbotron />
-        <SearchBar /> 
-        <SearchButton />
+        
         <Switch> 
-        {/* <Route exact path = "/" component = {Search} />
+        <Route exact path = "/" component = {Search} />
           <Route exact path = "/books" component = {Saved} /> 
            <Route exact path = "/books/:id" component = {Saved} /> 
-           <Route component = {NotFound} /> */}
+           <Route component = {NotFound} />
         </Switch> 
         <Footer />
         

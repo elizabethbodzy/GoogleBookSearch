@@ -1,16 +1,16 @@
 import React from "react";
-import SearchBar from "../components/SearchBar";
-import SearchButton from "../components/SearchButton";
-import SearchForm from "../components/SearchForm";
-import "./style.css";
+import SearchBar from "../SearchBar";
+import SearchButton from "../SearchButton";
+import SearchForm from "../SearchForm";
+
 
 function SearchDiv (props) {
     return (
         <div>
-            <SearchForm>
+            {/* <SearchForm> */}
                 <SearchBar />
                 <SearchButton searchBooks={props.searchBooks} />
-            </SearchForm>
+            {/* </SearchForm> */}
         </div>
     )
 };
