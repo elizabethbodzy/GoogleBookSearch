@@ -1,0 +1,9 @@
+.jumbotron {
+    background-image: url("../../images/book.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    padding: 0rem 0rem;
+   
+  }
