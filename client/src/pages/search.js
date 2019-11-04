@@ -3,21 +3,22 @@ import Jumbotron from "../components/Jumbotron";
 import { Container } from "../components/Grid";
 import SearchDiv from "../components/SearchDiv";
 import API from "../utils/API";
-import SearchResults from "../components/SearchResults";
+// import SearchResults from "../components/SearchResults";
 
 class Search extends Component {
     state = {
         search: "",
         books: [],
-        savedBooks: [],
+        results: [],
         error: ""
     }
 
 
     searchBooks = (event) => {
+        alert("yo");
         event.preventDefault();
         let searchBook = document.getElementById("searchbar").value;
-        API.getGoogleBookSearch(searchBook)
+        API.getBooks(searchBook)
         .then((result) => {
             let results = result.data.items;
             // console.log(results);

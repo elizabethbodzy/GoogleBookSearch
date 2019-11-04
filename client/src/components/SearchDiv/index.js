@@ -5,11 +5,12 @@ import SearchForm from "../SearchForm";
 
 
 function SearchDiv (props) {
+    console.log(props);
     return (
         <div>
             <SearchForm>
                 <SearchBar />
-                <SearchButton searchBooks={props.searchBooks} />
+                <SearchButton yo={props.searchBook} />
             </SearchForm>
         </div>
     )
