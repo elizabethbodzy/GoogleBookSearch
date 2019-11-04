@@ -7,10 +7,10 @@ import SearchForm from "../SearchForm";
 function SearchDiv (props) {
     return (
         <div>
-            {/* <SearchForm> */}
+            <SearchForm>
                 <SearchBar />
                 <SearchButton searchBooks={props.searchBooks} />
-            {/* </SearchForm> */}
+            </SearchForm>
         </div>
     )
 };
