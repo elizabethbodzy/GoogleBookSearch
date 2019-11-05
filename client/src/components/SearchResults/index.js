@@ -1,12 +1,13 @@
 import React from "react";
-// import { Container, Row, Col } from "../Grid";
+import "./style.css"
+
 
 function ResultsCard(props) {
-    console.log(props.title)
+    // console.log(props)
     return (
         <div className="ResultsCard row" id={props.title + " Card"}>
-            <div style={{ color: 'red' }}>{props.title}</div>
-            {/* <div className="ImageDiv col-2">
+            
+             <div className="ImageDiv col-2">
                 <img src={props.image} alt={"Image of" + props.title}></img>
 
             </div>
@@ -41,7 +42,7 @@ function ResultsCard(props) {
 };
 
 function ResultsContainer(props) {
-    // console.log(props)
+    console.log(props)
    
     return (
         props.results.length === 0) ? (
@@ -58,11 +59,11 @@ function ResultsContainer(props) {
                             <ResultsCard
                                 key={book.id}
                                 id={book.id}
-                                image={book.image}
+                                image={book.volumeInfo.imageLinks.smallThumbnail}
                                 title={book.volumeInfo.title}
-                                author={book.authors}
-                                description={book.description}
-                                link={book.link}
+                                author={book.volumeInfo.authors}
+                                description={book.volumeInfo.description}
+                                link={book.volumeInfo.infoLink}
                                 saveBook={props.saveBook}
                             />
                         );
