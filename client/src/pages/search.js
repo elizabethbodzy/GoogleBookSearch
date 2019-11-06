@@ -30,22 +30,7 @@ class Search extends Component {
         })
         .catch(err =>  
                 console.log(err));    
-        //     let results = result.data.items;
-        //     // console.log(results);
-        //     results = results.map((result) => {
-        //         let book = {
-        //             id: result.id,
-        //             title: result.volumeInfo.title,
-        //             authors: result.volumeInfo.authors,
-        //             image: result.volumeInfo.imageLinks.thumbnail,
-        //             description: result.volumeInfo.description,
-        //             link: result.volumeInfo.infoLink
-        //         };
-        //         return book;
-        //     });
-        //     this.setState({ results: results });
-        // }).catch(err =>  
-        //     console.log(err));
+     
         
     };
 

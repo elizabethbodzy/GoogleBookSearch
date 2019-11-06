@@ -2,31 +2,43 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-// import SavedBooks from "../components/SavedBooks";
+import SavedBooks from "../components/SavedBooks";
 
 class SaveBooks extends Component {
     state = {
         results: []
     };
 
-    getBooks = () => {
-        API.getBooks()
-        .then((data) => {
-            return this.setState({ results: data.data});        
+    handleSearchChange = (event) => {
+        // console.log(event.target.value);
+        this.setState({ search: event.target.value});
+    }
+
+    searchBooks = (event) => {
+        // alert("yo");
+        event.preventDefault();
+        // console.log(this.state.search)
+        // let searchBook = document.getElementById("searchbar").value;
+        API.getGoogleBookSearch(this.state.search)
+        .then((result) => {
+            // console.log(result.data)
+            this.setState({ results: result.data.items})
         })
-        .catch(err =>
-            console.log(err));
+        .catch(err =>  
+                console.log(err));    
+     
+        
     };
 
     removeBook = (id) => {
         API.deleteBook(id)
-        .then(() => { this.getBooks() })
+        .then(() => { this.getGoogleBookSearch() })
         .catch(err =>
             console.log(err));
     };
 
     componentDidMount() {
-        this.getBooks();
+        this.getGoogleBookSearch();
     };
 
     render() {
@@ -39,7 +51,7 @@ class SaveBooks extends Component {
                 </div>
             </Jumbotron>
             <Container>
-                {/* <SavedBooks saved={this.state.results} removeBook ={this.removeBook} /> */}
+                <SavedBooks saved={this.state.results} removeBook ={this.removeBook} />
             </Container>
             </Container>
 

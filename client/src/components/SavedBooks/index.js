@@ -1,11 +1,9 @@
 import React from "react";
-import "./style.css"
 
-
-function ResultsCard(props) {
+function SavedCard(props) {
     // console.log(props)
     return (
-        <div className="ResultsCard row" id={props.title + " Card"}>
+        <div className="SavedCard row" id={props.id + " Card"}>
             
              <div className="ImageDiv col-2">
                 <img src={props.image} alt={"Image of" + props.title}></img>
@@ -21,42 +19,42 @@ function ResultsCard(props) {
                         {props.author}
                     </h3>
                 </div>
-                <p className="ResultDescription">
+                <p className="SavedDescription">
                     {props.description}
                 </p>
             </div>
 
-            <div className="ResultsOptions col-1">
+            <div className="SavedOptions col-1">
                 <a href={props.link} target="_blank">
-                    <button className="View ResultOption">
+                    <button className="View SavedOption">
                         View
                 </button>
                 </a>
-                <button className="Save ResultOption" id={props.id}>
-                    Save
+                <button className="RemoveSave SavedOption" id={props.id} onClick={(event) => { props.deleteBook(event.target.id) }} >
+                    Remove Book
                 </button>
-            </div> */}
+            </div> 
         </div>
 
     );
 };
 
-function ResultsContainer(props) {
-    console.log(props)
+function SavedBooks(props) {
+    // console.log(props)
    
     return (
         props.results.length === 0) ? (
-            <div id="ResultsContainer">
-                <h1 className = "results"> Search Results </h1>
+            <div id="SavedBooks">
+                <h1 className = "results"> Saved Results </h1>
             </div>
         ) : (
         
-                <div id="ResultsContainer">
-                    <h1>Search Results </h1>
+                <div id="SavedBooks">
+                    <h1>Saved Books </h1>
                     {props.results.map((book) => {
 
                         return (
-                            <ResultsCard
+                            <SavedCard
                                 key={book.id}
                                 id={book.id}
                                 image={book.volumeInfo.imageLinks.smallThumbnail}
@@ -64,7 +62,7 @@ function ResultsContainer(props) {
                                 author={book.volumeInfo.authors}
                                 description={book.volumeInfo.description}
                                 link={book.volumeInfo.infoLink}
-                                saveBook={props.saveBook}
+                                deleteBook={props.removeBook}
                             />
                         );
                     })}
@@ -74,4 +72,4 @@ function ResultsContainer(props) {
     
 }
 
-export default ResultsContainer;
+export default SavedBooks;

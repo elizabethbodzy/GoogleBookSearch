@@ -1,11 +1,11 @@
-h2 {
+.results {
     color: Grey;
 }
 
-h3 {
+.InfoDiv {
     color: Grey;
 }
 
-p {
+.ResultDescription {
     color: Grey;
 }
