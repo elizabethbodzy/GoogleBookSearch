@@ -34,6 +34,32 @@ class Search extends Component {
         
     };
 
+    saveBook = id => {
+        var book = {};
+        var results = this.state.results;
+        console.log(this.state, id)
+        for (var i=0; i< results.length; i++) {
+            if (results[i].id === id) {
+                book = results[i]
+            }
+        }
+        console.log(book);
+
+
+
+        API.saveBook({
+                                
+                                title:book.volumeInfo.title,  
+                                author:book.volumeInfo.authors,  
+                                description:book.volumeInfo.description,
+                                image:book.volumeInfo.imageLinks.smallThumbnail,
+                                link:book.volumeInfo.infoLink
+                                
+        }).then(() => {
+            console.log('yo')
+        })
+    }
+
 
     render() {
         return (

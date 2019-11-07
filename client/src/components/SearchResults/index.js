@@ -32,7 +32,10 @@ function ResultsCard(props) {
                         View
                 </button>
                 </a>
-                <button className="Save ResultOption" id={props.id}>
+                <button className="Save ResultOption" id={props.id} onClick={(event) => { 
+                    event.preventDefault();
+                    props.saveBook(props.id) 
+                }}>
                     Save
                 </button>
             </div> */}
@@ -42,7 +45,7 @@ function ResultsCard(props) {
 };
 
 function ResultsContainer(props) {
-    console.log(props)
+    // console.log(props)
    
     return (
         props.results.length === 0) ? (

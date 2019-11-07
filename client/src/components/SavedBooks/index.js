@@ -72,4 +72,4 @@ function SavedBooks(props) {
     
 }
 
-export default SavedBooks;
+export default SavedCard;

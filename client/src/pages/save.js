@@ -2,27 +2,31 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import SavedBooks from "../components/SavedBooks";
+import SavedCard from "../components/SavedBooks";
 
 class SaveBooks extends Component {
     state = {
         results: []
     };
 
+    componentDidMount () {
+        this.savedBooks();
+    }
+
     handleSearchChange = (event) => {
         // console.log(event.target.value);
         this.setState({ search: event.target.value});
     }
 
-    searchBooks = (event) => {
+    savedBooks = (event) => {
         // alert("yo");
-        event.preventDefault();
+        // event.preventDefault();
         // console.log(this.state.search)
         // let searchBook = document.getElementById("searchbar").value;
-        API.getGoogleBookSearch(this.state.search)
+        API.getBooks()
         .then((result) => {
-            // console.log(result.data)
-            this.setState({ results: result.data.items})
+            console.log(result.data)
+            this.setState({ results: result.data})
         })
         .catch(err =>  
                 console.log(err));    
@@ -32,17 +36,16 @@ class SaveBooks extends Component {
 
     removeBook = (id) => {
         API.deleteBook(id)
-        .then(() => { this.getGoogleBookSearch() })
+        .then(() => { this.deleteBook() })
         .catch(err =>
             console.log(err));
     };
 
-    componentDidMount() {
-        this.getGoogleBookSearch();
-    };
 
     render() {
+        console.log(this.state.results)
         return (
+            
             <Container fluid>
             <Jumbotron>
                 <div className="container">
@@ -51,7 +54,7 @@ class SaveBooks extends Component {
                 </div>
             </Jumbotron>
             <Container>
-                <SavedBooks saved={this.state.results} removeBook ={this.removeBook} />
+                <SavedCard saved={this.state.results} removeBook ={this.removeBook} />
             </Container>
             </Container>
 
