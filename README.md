@@ -31,10 +31,11 @@ This section lists the major frameworks that were used to build this project.
 <!-- DEMO -->
 ## Demo
 
-<p> Heroku Demo 
+
   <a href="https://booksearchapp3.herokuapp.com/"> Heroku: https://booksearchapp3.herokuapp.com/
   </a>
-  </p>
+
+  <br>
 
 <Footer>
     &copy; Elizabeth Bodzy Google Book Search Github
