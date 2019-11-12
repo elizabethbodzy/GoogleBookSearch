@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Search from "./pages/Search";
-import Saved from "./pages/Save";
-import NotFound from "./pages/NotFound";
+import Search from "../src/pages/Search";
+import Saved from "../src/pages/Save";
+import NotFound from "../src/pages/NotFound";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
