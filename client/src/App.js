@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import SaveBooks from "./pages/Save";
+
 import Search from "./pages/Search";
+import Saved from "./pages/Save";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -19,7 +20,7 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={Search} />
-          <Route exact path="/saved" component={SaveBooks} />
+          <Route exact path="/saved" component={Saved} />
           <Route component={NotFound} />
         </Switch>
         <Footer />
