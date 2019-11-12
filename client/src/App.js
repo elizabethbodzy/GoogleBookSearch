@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import SaveBooks from "./pages/Save";
 import SaveBooks from "./pages/Save";
 import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
@@ -21,7 +20,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/saved" component={SaveBooks} />
-          <Route exact path="/saved/:id" component={SaveBooks} />
           <Route component={NotFound} />
         </Switch>
         <Footer />
